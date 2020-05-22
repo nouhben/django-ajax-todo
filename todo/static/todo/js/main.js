@@ -1,3 +1,4 @@
+/*
 const createBtn = document.getElementById('createBtn');
 const todosList = document.getElementById('todos-list');
 createBtn.addEventListener('click', function () {
@@ -14,6 +15,7 @@ createBtn.addEventListener('click', function () {
         }
     }
 })
+*/
 $(document).ready(function () {
     $('#createBtn').click(function (e) {
         const serializedData = $('#createTaskForm').serialize();
