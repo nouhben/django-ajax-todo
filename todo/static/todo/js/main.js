@@ -1,3 +1,8 @@
+const createBtn = document.getElementById('createBtn');
+createBtn.addEventListener('click', function () {
+    const data = $('#createTaskForm').serialize();
+    console.log(data);
+})
 $(document).ready(function () {
     $('#createBtn').click(function (e) {
         const serializedData = $('#createTaskForm').serialize();
