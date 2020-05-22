@@ -1,7 +1,18 @@
 const createBtn = document.getElementById('createBtn');
+const todosList = document.getElementById('todos-list');
 createBtn.addEventListener('click', function () {
     const data = $('#createTaskForm').serialize();
-    console.log(data);
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', $('#createTaskForm').data(url), true);
+    xhr.onreadystatechange = addData;
+    function addData(response) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            const createdTask = '<div class="card mb-3" id="taskCard" data-id="' + response.task.id + '><div class="card-body outline-info">' +
+                response.task.title +
+                '<button type="button" class="close float-right" data-id="' + response.task.id + '"><span aria-hidden="true">&times;</span></button></div></div>';
+            todosList.innerHTML += createdTask;
+        }
+    }
 })
 $(document).ready(function () {
     $('#createBtn').click(function (e) {
